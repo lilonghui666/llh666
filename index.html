@@ -32,6 +32,9 @@
     };
     //暂停并且清空计时器
     function oStop() {
+        if(txt.innerHTML==="10:00"){
+            alert('当前时间: '+txt.innerHTML+",截图找我给1块钱奖励")
+        }
         clearInterval(timer);
     }
     //重置
