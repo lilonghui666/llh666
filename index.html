@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>十秒计时器</title>
+<style>
+    .class{
+        size: 10px;
+    }
+</style>
+</head>
+<body>
+<p style="font-size: 3em;color: blue;font-style: italic;">挑战10.00秒</p>
+<p id="time" style="font-size: 5em;color: red;">00:00</p>
+<input style="width: 90px;height: 50px" class="1" type="button" value="开始" onclick="oStart()">
+<br><br><br>
+<input style="width: 90px;height: 50px" class="1" type="button" value="重置" onclick="oReset()">
+<br><br><br>
+<input style="width: 90px;height: 50px" class="1" type="button" value="结束" onclick="oStop()">
+
+<script>
+    var n= 0, timer=null;
+    var txt=document.getElementById("time");
+    //开始计时
+    function oStart() {
+        clearInterval(timer);
+        timer=setInterval(function () {
+            n++;
+            var m=parseInt(n/60);
+            var s=parseInt(n%60);
+            txt.innerText=toDub(m)+":"+toDub(s);
+        },1000/60);
+    };
+    //暂停并且清空计时器
+    function oStop() {
+        clearInterval(timer);
+    }
+    //重置
+    function oReset() {
+         txt.innerText="00:00";
+        n=0;
+    }
+    //补零
+    function toDub(n){
+        return n<10?"0"+n:n;
+    }
+</script>
+</body>
+</html>
